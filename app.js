@@ -25,18 +25,40 @@ const fruit = new Fruit({
   review: "good food"
 });
 
+// const Watermelon = new Fruit({
+//   name: "Watermelon",
+//   ratting: 9,
+//   review: "great food"
+// });
+
+const Papaya = new Fruit({
+  name: "Papaya",
+  ratting: 9,
+  review: "Awasome food.."
+});
+
+// Papaya.save();
+
 const personSchema = new mongoose.Schema({
   name: String,
-  sex: String,
-  mobile_number: Number
+  age: Number,
+  favouriteFruit: fruitSchema
 });
 
 const Person = mongoose.model("Person", personSchema);
 
-const person = new Person({
-  name: "Ravi",
-  sex: "Male",
-  mobile_number: 9723325879
+// const person = new Person({
+//   name: "john",
+//   age: 21,
+//   favouriteFruit: Watermelon
+// });
+
+Person.updateOne({_id: "608bb1f0e57dcf437081db9f"}, {favouriteFruit: Papaya}, function(err){
+  if(err){
+    console.log(err);
+  } else{
+    console.log("successfully updated the document.");
+  }
 });
 
 // //  fruit.save();
