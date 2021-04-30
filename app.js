@@ -5,16 +5,23 @@ const mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost:27017/fruitsDB" , { useNewUrlParser: true ,useUnifiedTopology: true});
 
 const fruitSchema = new mongoose.Schema({
-  name: String,
-  ratting: Number,
+  name: {
+    type: String,
+    required: [true, "Pleace Enter Fruit name !!!!"]
+  },
+  ratting: {
+    type: Number,
+    min: 1,
+    max: 10
+  },
   review: String
 });
 
 const Fruit = mongoose.model("Fruit", fruitSchema);
 
 const fruit = new Fruit({
-  name: "Apple",
-  ratting: 8,
+  name: "blackberries",
+  ratting: 10,
   review: "good food"
 });
 
@@ -32,7 +39,7 @@ const fruit = new Fruit({
 //   mobile_number: 9723325879
 // });
 
-// // fruit.save();
+ fruit.save();
 // // person.save(); 
 
 // const kiwi = new Fruit({
