@@ -25,22 +25,22 @@ const fruit = new Fruit({
   review: "good food"
 });
 
-// const personSchema = new mongoose.Schema({
-//   name: String,
-//   sex: String,
-//   mobile_number: Number
-// });
+const personSchema = new mongoose.Schema({
+  name: String,
+  sex: String,
+  mobile_number: Number
+});
 
-// const Person = mongoose.model("Person", personSchema);
+const Person = mongoose.model("Person", personSchema);
 
-// const person = new Person({
-//   name: "Ravi",
-//   sex: "Male",
-//   mobile_number: 9723325879
-// });
+const person = new Person({
+  name: "Ravi",
+  sex: "Male",
+  mobile_number: 9723325879
+});
 
- fruit.save();
-// // person.save(); 
+// //  fruit.save();
+// person.save(); 
 
 // const kiwi = new Fruit({
 //   name: "kiwi",
@@ -82,6 +82,30 @@ Fruit.find(function(err,fruits){
     });
   }
 });
+
+// Fruit.updateOne({_id: "6083ffc44aa495251c9508bf"}, {name: "Pear"}, function(err){
+//   if(err){
+//     console.log(err);
+//   } else{
+//     console.log("successfully updated the document.");
+//   }
+// });
+
+// Fruit.deleteOne({ratting: 10 }, function(err){
+//   if(err){
+//     console.log(err);
+//   } else{
+//     console.log("successfully deleted the document..");
+//   }
+// });
+
+// Person.deleteMany({name: "Ravi"}, function(err){
+//   if(err){
+//     console.log(err);
+//   } else{
+//     console.log("successfully deleted the all document..");
+//   }
+// })
 
   const findDocuments = function(db, callback) {
     // Get the documents collection
